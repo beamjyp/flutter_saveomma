@@ -1,0 +1,19 @@
+from PIL import Image
+import easygui
+from pylab import *
+
+
+Im = array(Image.open('lena512color.tiff'))
+
+def rgb2gray(RGB):
+    return dot (RGB[...,:3],[.299,.587,.114])
+Im=rgb2gray(Im)
+#Im2=clip(Im-50,0,255)
+
+                     
+subplot(1,2,1)
+imshow(Im,cmap='gray',vmin=0,vmax=255)
+                     
+subplot(1,2,2)
+imshow(Im2,cmap='gray',vmin=0,vmax=255)
+show()
